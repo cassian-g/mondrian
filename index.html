@@ -7,17 +7,41 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <header>
+      <h1>Mondrimania!</h1>
+      <p>Developed by <a onclick='window.open("https://www.linkedin.com/in/cassian-goode/");return false;' >Cassian Goode</a></p>
+    </header>
     <div class="controls">
-      <h2>Size</h2>
+      <h2>Pick a size</h2>
         <button onclick="generatePainting(4)">4x4</button>
         <button onclick="generatePainting(6)">6x6</button>
         <button onclick="generatePainting(8)">8x8</button>
-      <h2>Colors</h2>
-        <input type="range" min="0" max="5" value="3" step="1" id="whiteSlider" onchange="updateColor(value, 'white')">
-        <input type="range" min="0" max="5" value="2" step="1" id="blueSlider" onchange="updateColor(value, 'blue')">
-        <input type="range" min="0" max="5" value="2" step="1" id="redSlider" onchange="updateColor(value, 'red')">
-        <input type="range" min="0" max="5" value="2" step="1" id="yellowSlider" onchange="updateColor(value, 'yellow')">
-        <input type="range" min="0" max="5" value="0" step="1" id="blackSlider" onchange="updateColor(value, 'black')">
+      <h2>Choose your colors</h2>
+        <div class="colorbox-wrapper">
+          <div class="colorbox whitebox"></div>
+          <input type="range" min="0" max="5" value="3" step="1" id="whiteSlider" onchange="updateColor(value, 'white')">
+        </div>
+        
+        <div class="colorbox-wrapper">
+          <div class="colorbox bluebox"></div>
+          <input type="range" min="0" max="5" value="3" step="1" id="whiteSlider" onchange="updateColor(value, 'white')">
+        </div>
+        
+        <div class="colorbox-wrapper">
+          <div class="colorbox redbox"></div>
+          <input type="range" min="0" max="5" value="2" step="1" id="redSlider" onchange="updateColor(value, 'red')">
+        </div>
+
+
+        <div class="colorbox-wrapper">
+          <div class="colorbox yellowbox"></div>
+          <input type="range" min="0" max="5" value="2" step="1" id="yellowSlider" onchange="updateColor(value, 'yellow')">
+        </div>
+
+        <div class="colorbox-wrapper">
+          <div class="colorbox blackbox"></div>
+          <input type="range" min="0" max="5" value="0" step="1" id="blackSlider" onchange="updateColor(value, 'black')">
+        </div>
 
     </div>
     <div class="painting" id="painting"></div>
