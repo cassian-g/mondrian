@@ -1,0 +1,68 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+}
+
+.painting {
+  display: grid;
+  grid-template-columns: repeat(8, 50px); /* Adjust number of columns */
+  grid-template-rows: repeat(8, 50px); /* Adjust number of rows */
+  gap: 5px; /* Adjust gap between cells */
+  border: 5px solid black; /* Border around painting */
+  background-color: black;
+}
+
+.cell {
+  background-color: white; /* Default background color */
+  position: relative; /* Positioning for border elements */
+}
+
+/* Customize colors for different cell classes */
+.red {
+  background-color: #ff0000;
+}
+.blue {
+  background-color: #0000ff;
+}
+.yellow {
+  background-color: #ffff00;
+}
+.white {
+  background-color: #fff;
+}
+
+/* Border styles for adjacent cells with same color */
+.cell.top-white,
+.cell.bottom-white,
+.cell.left-white,
+.cell.right-white {
+  border-color: white;
+}
+
+.cell.top-white::before,
+.cell.bottom-white::after,
+.cell.left-white::before,
+.cell.right-white::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  z-index: 1; /* Ensure border appears behind cell content */
+}
+
+.cell.top-white::before,
+.cell.bottom-white::after {
+  height: 5px; /* Border height */
+  width: calc(100% + 10px); /* Border width (include gap) */
+  top: -5px; /* Position above cell */
+  left: -5px; /* Position to cover full width of cell */
+}
+
+.cell.left-white::before,
+.cell.right-white::after {
+  width: 5px; /* Border width */
+  height: calc(100% + 10px); /* Border height (include gap) */
+  top: -5px; /* Position to cover full height of cell */
+  left: -5px; /* Position to the left of cell */
+}
