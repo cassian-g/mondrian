@@ -66,12 +66,12 @@ const applyBorderClasses = () => {
     if (rightCell && rightCell.color !== color && columnIndex !== rowCells - 1) {
       element.classList.add("right");
     }
-    if (columnIndex === 0) {
-      element.classList.add("left");
-    }  
-    if (columnIndex === rowCells - 1) {
-      element.classList.add("right");
-    } 
+    // if (columnIndex === 0) {
+    //   element.classList.add("left");
+    // }  
+    // if (columnIndex === rowCells - 1) {
+    //   element.classList.add("right");
+    // } 
   });
 }
 

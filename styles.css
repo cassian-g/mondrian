@@ -11,7 +11,15 @@ body {
   display: grid;
   grid-template-columns: repeat(8, calc(400px / 8)); 
   grid-template-rows: repeat(8, calc(400px / 8)); 
-  border: 15px solid black;
+  padding: 30px;
+  background-color: rgb(225, 222, 222);
+  border-style: solid;
+  border-width: 15px;
+  border-top-color: black;
+  border-right-color: rgb(54, 54, 54);
+  border-bottom-color: black;
+  border-left-color: rgb(54, 54, 54);
+  box-shadow: 2px 2px 4px rgba(0,0,0,.6);  
 }
 
 #painting.large {
@@ -55,17 +63,17 @@ button {
 /* Borders */
 
 .cell.top {
-  border-top: 2px solid black;
+  border-top: 3px solid black;
 } 
 
 .cell.bottom {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid black;
 } 
 
 .cell.left {
-  border-left: 2px solid black;
+  border-left: 3px solid black;
 } 
 
 .cell.right {
-  border-right: 2px solid black;
+  border-right: 3px solid black;
 } 
