@@ -2,17 +2,22 @@
 
 body {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 50px auto;
+  margin-top: 75px;;
+}
+
+.controls {
+  border: 2px solid black;
+  min-height: 400px;
+  max-width: 200px;
 }
 
 .painting {
   display: grid;
-  grid-template-columns: repeat(8, calc(400px / 8)); 
-  grid-template-rows: repeat(8, calc(400px / 8)); 
   padding: 30px;
-  background-color: rgb(225, 222, 222);
+  background: rgb(172,172,172);
+  background: linear-gradient(133deg, rgba(172,172,172,1) 0%, rgba(191,191,191,1) 42%);
   border-style: solid;
   border-width: 15px;
   border-top-color: black;
@@ -20,6 +25,10 @@ body {
   border-bottom-color: black;
   border-left-color: rgb(54, 54, 54);
   box-shadow: 2px 2px 4px rgba(0,0,0,.6);  
+}
+
+#painting.rotate {
+  grid-auto-flow: column;
 }
 
 #painting.large {
@@ -58,6 +67,10 @@ button {
 }
 .white {
   background-color: white;
+}
+
+.black {
+  background-color: black;
 }
 
 /* Borders */

@@ -1,4 +1,4 @@
-const allColors = ["red", "blue", "yellow", "white", "white", "white", "white"];
+let allColors = ["red", "blue", "yellow", "white"];
 
 let totalCells;
 let rowCells;
@@ -66,13 +66,15 @@ const applyBorderClasses = () => {
     if (rightCell && rightCell.color !== color && columnIndex !== rowCells - 1) {
       element.classList.add("right");
     }
-    // if (columnIndex === 0) {
-    //   element.classList.add("left");
-    // }  
-    // if (columnIndex === rowCells - 1) {
-    //   element.classList.add("right");
-    // } 
   });
 }
 
 generatePainting(8);
+
+const updateColor = (val, col) => {
+  allColors = allColors.filter(color => color != col);
+  for (let i=0; i<val; i++) {
+    allColors.push(col);
+  }
+  generatePainting(rowCells);
+}
