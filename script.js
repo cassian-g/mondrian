@@ -10,9 +10,9 @@ for (let i = 0; i < 64; i++) {
 
   let filteredColors = allColors;
   if (i === 8) {
-    filteredColors = allColors.filter(col => col !== cells[i-7].color)
+    filteredColors = allColors.filter(col => col !== cells[i - 7].color)
   } else if (i > 9) {
-    filteredColors = allColors.filter(col => col !== cells[i-9].color && col !== cells[i-7].color)
+    filteredColors = allColors.filter(col => col !== cells[i - 9].color && col !== cells[i - 7].color)
   }
 
   color = filteredColors[Math.floor(Math.random() * filteredColors.length)];
