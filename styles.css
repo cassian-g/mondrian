@@ -1,39 +1,58 @@
+/* Positioning */
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 50px auto;
-  box-sizing: border-box;
 }
 
 .painting {
   display: grid;
-  grid-template-columns: repeat(8, 50px); 
-  grid-template-rows: repeat(8, 50px); 
-  border: 15px solid black; 
+  grid-template-columns: repeat(8, calc(400px / 8)); 
+  grid-template-rows: repeat(8, calc(400px / 8)); 
+  border: 15px solid black;
+}
+
+#painting.large {
+  grid-template-columns: repeat(8, calc(400px / 8)); 
+  grid-template-rows: repeat(8, calc(400px / 8)); 
+}
+
+#painting.medium {
+  grid-template-columns: repeat(6, calc(400px / 6)); 
+  grid-template-rows: repeat(6, calc(400px / 6)); 
+}
+
+#painting.small {
+  grid-template-columns: repeat(4, calc(400px / 4)); 
+  grid-template-rows: repeat(4, calc(400px / 4)); 
 }
 
 .cell {
-  /* background-color: white;  */
-  position: relative; /* Positioning for border elements */
+  position: relative;
 }
 
-/* Customize colors for different cell classes */
+button {
+  margin-right: 20px;
+}
+
+/* Colors */
+
 .red {
-  background-color: #ff0000;
+  background-color: red;
 }
 .blue {
-  background-color: #0000ff;
+  background-color: blue
 }
 .yellow {
-  background-color: #ffff00;
+  background-color: yellow;
 }
 .white {
-  background-color: #fff;
+  background-color: white;
 }
 
-/* Border styles for adjacent cells with same color */
-
+/* Borders */
 
 .cell.top {
   border-top: 2px solid black;

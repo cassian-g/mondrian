@@ -1,46 +1,78 @@
-const allColors = ["red", "blue", "yellow", "white", "white", "white", "white"]; // Primary colors and white
+const allColors = ["red", "blue", "yellow", "white", "white", "white", "white"];
 
-// Generate random colors for each cell
-const painting = document.getElementById("painting");
-const cells = []; // Array to store cell elements
-for (let i = 0; i < 64; i++) {
-  // 8 rows * 8 columns = 64 cells
+let totalCells;
+let rowCells;
 
-  const cell = document.createElement("div");
-
-  let filteredColors = allColors;
-  if (i === 8) {
-    filteredColors = allColors.filter((col) => col !== cells[i - 7].color);
-  } else if (i >= 9) {
-    filteredColors = allColors.filter(
-      (col) => col !== cells[i - 9].color && col !== cells[i - 7].color
-    );
+const generatePainting = (row) => {
+  totalCells = row * row;
+  rowCells = row;
+  let size;
+  if (row === 4) {
+    size = 'small'
+  } else if (row === 6) {
+    size = 'medium'
+  } else if (row === 8) {
+    size = 'large'
   }
-  color = filteredColors[Math.floor(Math.random() * filteredColors.length)];
-
-  cell.classList.add("cell", color);
-  painting.appendChild(cell);
-  cells.push({ element: cell, color: color });
+  generateGrid(size);
 }
 
-// Add border styles for adjacent cells with same color
-cells.forEach((currentCell, i) => {
-  const { element, color } = currentCell;
-  const topCell = cells[i - 8];
-  const bottomCell = cells[i + 8];
-  const leftCell = cells[i - 1];
-  const rightCell = cells[i + 1];
+const painting = document.getElementById("painting");
+const cells = []; 
 
-  if (topCell && topCell.color !== color) {
-    element.classList.add("top");
+const generateGrid = (size) => {
+  painting.innerHTML = '';
+  cells.length = 0;
+
+  painting.classList.remove('small', 'medium', 'large');
+  
+  for (let i = 0; i < totalCells; i++) {
+    const cell = document.createElement("div");
+    let filteredColors = allColors;
+    if (i === rowCells) {
+      filteredColors = allColors.filter((col) => col !== cells[i - (rowCells - 1)].color);
+    } else if (i > rowCells) {
+      filteredColors = allColors.filter(
+        (col) => col !== cells[i - (rowCells + 1)].color && col !== cells[i - (rowCells - 1)].color
+      );
+    }
+    color = filteredColors[Math.floor(Math.random() * filteredColors.length)];
+    cell.classList.add("cell", color);
+    painting.classList.add(size); // Add size class to adjust grid size
+    painting.appendChild(cell);
+    cells.push({ element: cell, color: color });
   }
-  if (bottomCell && bottomCell.color !== color) {
-    element.classList.add("bottom");
-  }
-  if (leftCell && leftCell.color !== color) {
-    element.classList.add("left");
-  }
-  if (rightCell && rightCell.color !== color) {
-    element.classList.add("right");
-  }
-});
+
+  applyBorderClasses();
+}
+
+const applyBorderClasses = () => {
+  cells.forEach((currentCell, index) => {
+    const { element, color } = currentCell;
+    const topCell = cells[index - rowCells];
+    const bottomCell = cells[index + rowCells];
+    const leftCell = cells[index - 1];
+    const rightCell = cells[index + 1];
+    const columnIndex = index % rowCells;
+    if (topCell && topCell.color !== color) {
+      element.classList.add("top");
+    }
+    if (bottomCell && bottomCell.color !== color) {
+      element.classList.add("bottom");
+    }
+    if (leftCell && leftCell.color !== color && columnIndex !== 0) {
+      element.classList.add("left");
+    }
+    if (rightCell && rightCell.color !== color && columnIndex !== rowCells - 1) {
+      element.classList.add("right");
+    }
+    if (columnIndex === 0) {
+      element.classList.add("left");
+    }  
+    if (columnIndex === rowCells - 1) {
+      element.classList.add("right");
+    } 
+  });
+}
+
+generatePainting(8);
