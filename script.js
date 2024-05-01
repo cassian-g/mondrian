@@ -10,11 +10,12 @@ for (let i = 0; i < 64; i++) {
 
   let filteredColors = allColors;
   if (i === 8) {
-    filteredColors = allColors.filter(col => col !== cells[i - 7].color)
-  } else if (i > 9) {
-    filteredColors = allColors.filter(col => col !== cells[i - 9].color && col !== cells[i - 7].color)
+    filteredColors = allColors.filter((col) => col !== cells[i - 7].color);
+  } else if (i >= 9) {
+    filteredColors = allColors.filter(
+      (col) => col !== cells[i - 9].color && col !== cells[i - 7].color
+    );
   }
-
   color = filteredColors[Math.floor(Math.random() * filteredColors.length)];
 
   cell.classList.add("cell", color);
@@ -23,25 +24,23 @@ for (let i = 0; i < 64; i++) {
 }
 
 // Add border styles for adjacent cells with same color
-cells.forEach((currentCell, index) => {
+cells.forEach((currentCell, i) => {
   const { element, color } = currentCell;
-  const row = Math.floor(index / 8);
-  const col = index % 8;
-  const topCell = cells[index - 8];
-  const bottomCell = cells[index + 8];
-  const leftCell = cells[index - 1];
-  const rightCell = cells[index + 1];
+  const topCell = cells[i - 8];
+  const bottomCell = cells[i + 8];
+  const leftCell = cells[i - 1];
+  const rightCell = cells[i + 1];
 
-  if (topCell && topCell.color === color) {
-    element.classList.add("top-white");
+  if (topCell && topCell.color !== color) {
+    element.classList.add("top");
   }
-  if (bottomCell && bottomCell.color === color) {
-    element.classList.add("bottom-white");
+  if (bottomCell && bottomCell.color !== color) {
+    element.classList.add("bottom");
   }
-  if (leftCell && leftCell.color === color && col !== 0) {
-    element.classList.add("left-white");
+  if (leftCell && leftCell.color !== color) {
+    element.classList.add("left");
   }
-  if (rightCell && rightCell.color === color && col !== 7) {
-    element.classList.add("right-white");
+  if (rightCell && rightCell.color !== color) {
+    element.classList.add("right");
   }
 });
