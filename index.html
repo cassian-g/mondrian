@@ -9,14 +9,16 @@
   <body>
     <header>
       <h1>Mondrimania!</h1>
-      <p>Developed by <a onclick='window.open("https://www.linkedin.com/in/cassian-goode/");return false;' >Cassian Goode</a></p>
+      <p>Developed by <a onclick='window.open("https://www.linkedin.com/in/cassian-goode/");return false;'>Cassian Goode</a></p>
     </header>
+    
     <div class="controls">
-      <h2>Pick a size</h2>
+      <h2>Generate a Mondrian style painting!</h2>
+      <h3>Pick a size</h3>
         <button onclick="generatePainting(4)">4x4</button>
         <button onclick="generatePainting(6)">6x6</button>
         <button onclick="generatePainting(8)">8x8</button>
-      <h2>Choose your colors</h2>
+      <h3 class="color-section">Choose your colors</h3>
         <div class="colorbox-wrapper">
           <div class="colorbox whitebox"></div>
           <input type="range" min="0" max="5" value="3" step="1" id="whiteSlider" onchange="updateColor(value, 'white')">

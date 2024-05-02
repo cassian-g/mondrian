@@ -1,29 +1,34 @@
-/* Positioning */
-
+/* Global styles */
 html {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+/* Header styles */
 header {
   position: fixed;
-  line-height: 1.4rem;
   top: 0;
   left: 0;
-  background-color: black;
-  color: white;
   width: 100%;
   height: 4rem;
+  line-height: 1.4rem;
+  background-color: black;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Header child elements */
 h1 {
-  margin-left: 30px;
+  margin-left: 2vw;
+}
+
+h2 {
+  font-weight: bolder;
 }
 
 header p {
-  margin-right: 30px;
+  margin-right: 2vw;
 }
 
 a {
@@ -31,10 +36,7 @@ a {
   text-decoration: underline;
 }
 
-a:hover {
-  cursor: pointer;
-}
-
+/* Body styles */
 body {
   display: flex;
   justify-content: space-evenly;
@@ -44,13 +46,14 @@ body {
   background-color: lightgray;
 }
 
+/* Button styles */
 button {
-  width: 100px;
+  width: 8vw;
   background: rgb(172, 172, 172);
   border: 2px solid transparent;
   border-radius: 5px;
   font-size: 0.9rem;
-  margin-right: 20px;
+  margin-right: 2vw;
 }
 
 button:hover {
@@ -62,16 +65,27 @@ button:active {
   background-color: rgb(102, 102, 102);
 }
 
+/* Controls section */
+.controls p {
+  font-size: ;
+}
+
+/* Color section */
+.color-section {
+  margin-top: 3vh;
+}
+
 .colorbox-wrapper {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
 }
 
 .colorbox {
-  width: 15px;
-  height: 15px;
+  width: 2vw;
+  height: 2vw;
   border: 1px solid rgb(172, 172, 172);
-  margin-right: 10px;
+  border-radius: 5px;
+  margin-right: 1vw;
 }
 
 .whitebox {
@@ -94,14 +108,16 @@ button:active {
   background: black;
 }
 
+/* Input styles */
 input:hover {
   cursor: grabbing;
   background: red;
 }
 
+/* Painting section */
 .painting {
   display: grid;
-  padding: 3rem;
+  padding: 3vh;
   background: rgb(172, 172, 172);
   background: linear-gradient(
     133deg,
@@ -109,49 +125,53 @@ input:hover {
     rgba(191, 191, 191, 1) 42%
   );
   border-style: solid;
-  border-width: 15px;
+  border-width: 3vh;
   border-top-color: black;
   border-right-color: rgb(54, 54, 54);
   border-bottom-color: black;
   border-left-color: rgb(54, 54, 54);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-  margin: 20px 0 20px 0;
+  box-shadow: 1vh 1vh 2vh rgba(0, 0, 0, 0.6);
+  margin: 2vh 0 2vh 0;
 }
 
 #painting.rotate {
   grid-auto-flow: column;
 }
 
+/* Grid size variations */
 #painting.large {
-  grid-template-columns: repeat(8, calc(400px / 8));
-  grid-template-rows: repeat(8, calc(400px / 8));
+  grid-template-columns: repeat(8, calc(50vh / 8));
+  grid-template-rows: repeat(8, calc(50vh / 8));
 }
 
 #painting.medium {
-  grid-template-columns: repeat(6, calc(400px / 6));
-  grid-template-rows: repeat(6, calc(400px / 6));
+  grid-template-columns: repeat(6, calc(50vh / 6));
+  grid-template-rows: repeat(6, calc(50vh / 6));
 }
 
 #painting.small {
-  grid-template-columns: repeat(4, calc(400px / 4));
-  grid-template-rows: repeat(4, calc(400px / 4));
+  grid-template-columns: repeat(4, calc(50vh / 4));
+  grid-template-rows: repeat(4, calc(50vh / 4));
 }
 
+/* Cell styles */
 .cell {
   position: relative;
 }
 
-/* Colors */
-
+/* Cell colors */
 .red {
   background-color: red;
 }
+
 .blue {
   background-color: blue;
 }
+
 .yellow {
   background-color: yellow;
 }
+
 .white {
   background-color: white;
 }
@@ -160,8 +180,7 @@ input:hover {
   background-color: black;
 }
 
-/* Borders */
-
+/* Cell borders */
 .cell.top {
   border-top: 3px solid black;
 }
@@ -176,4 +195,57 @@ input:hover {
 
 .cell.right {
   border-right: 3px solid black;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 50rem) {
+  body {
+    font-size: .8rem;
+  }
+  button {
+    min-height: 1rem;
+    font-size: 1.1rem;
+  }
+  h1 {
+    margin-left: 5px;
+  }
+  header p {
+    margin-right: 5px;
+  }
+}
+
+
+@media only screen and (min-width: 130rem) {
+  body {
+    font-size: 1.2rem;
+  }
+  button {
+    min-height: 2.5rem;
+    font-size: 1.1rem;
+  }
+  h1 {
+    margin-left: 8vw;
+  }
+  header p {
+    margin-right: 8vw;
+  }
+}
+
+@media only screen and (min-height: 30rem) and (max-height: 40rem) {
+  .controls {
+    margin-top: 5vh;
+  }
+  #painting {
+    margin-top: 5vh;
+  }
+}
+
+@media only screen and (min-height: 40rem) {
+  .controls {
+    margin-top: 10vh;
+  }
+  #painting {
+    margin-top: 10vh;
+  }
 }
