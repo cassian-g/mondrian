@@ -38,7 +38,7 @@ const generateGrid = (size) => {
     }
     color = filteredColors[Math.floor(Math.random() * filteredColors.length)];
     cell.classList.add("cell", color);
-    painting.classList.add(size); // Add size class to adjust grid size
+    painting.classList.add(size);
     painting.appendChild(cell);
     cells.push({ element: cell, color: color });
   }

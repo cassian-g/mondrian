@@ -65,11 +65,6 @@ button:active {
   background-color: rgb(102, 102, 102);
 }
 
-/* Controls section */
-.controls p {
-  font-size: ;
-}
-
 /* Color section */
 .color-section {
   margin-top: 3vh;
@@ -198,6 +193,16 @@ input:hover {
 }
 
 /* Media queries */
+
+@media only screen and (max-width: 500px) {
+  body {
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .controls {
+  }
+}
 
 @media only screen and (max-width: 50rem) {
   body {
