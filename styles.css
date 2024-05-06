@@ -197,10 +197,34 @@ input:hover {
 @media only screen and (max-width: 500px) {
   body {
     flex-direction: column;
-    margin-top: 0;
+    margin-top: 80px;
     margin-bottom: 0;
   }
   .controls {
+    width: 100%;
+  }
+  .controls button {
+    font-size: 0.8rem;
+  }
+  .color-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .painting {
+    padding: 0;
+  }
+  #painting.large {
+    grid-template-columns: repeat(8, calc(30vh / 8));
+    grid-template-rows: repeat(8, calc(30vh / 8));
+  }
+  #painting.medium {
+    grid-template-columns: repeat(6, calc(30vh / 6));
+    grid-template-rows: repeat(6, calc(30vh / 6));
+  }
+  #painting.small {
+    grid-template-columns: repeat(4, calc(30vh / 4));
+    grid-template-rows: repeat(4, calc(30vh / 4));
   }
 }
 
@@ -218,8 +242,10 @@ input:hover {
   header p {
     margin-right: 5px;
   }
+  .controls h2 {
+    display: none;
+  }
 }
-
 
 @media only screen and (min-width: 130rem) {
   body {
@@ -246,7 +272,7 @@ input:hover {
   }
 }
 
-@media only screen and (min-height: 40rem) {
+@media only screen and (max-height: 40rem) {
   .controls {
     margin-top: 10vh;
   }
