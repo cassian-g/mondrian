@@ -44,6 +44,7 @@ body {
   margin-top: 5rem;
   flex: 2 2;
   background-color: lightgray;
+  margin: 10% auto;
 }
 
 /* Button styles */
@@ -197,7 +198,6 @@ input:hover {
 @media only screen and (max-width: 500px) {
   body {
     flex-direction: column;
-    margin-top: 80px;
     margin-bottom: 0;
   }
   .controls {
