@@ -1,6 +1,7 @@
 /* Global styles */
 html {
   font-family: Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 /* Header styles */
@@ -8,7 +9,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 4rem;
   line-height: 1.4rem;
   background-color: black;
@@ -24,6 +25,8 @@ h1 {
 }
 
 h2 {
+  
+  font-size: 2rem;
   font-weight: bolder;
 }
 
@@ -45,11 +48,12 @@ body {
   flex: 2 2;
   background-color: lightgray;
   margin: 10% auto;
+  border: 2px solid red;
 }
 
 /* Button styles */
 button {
-  width: 8vw;
+  width: 10vw;
   background: rgb(172, 172, 172);
   border: 2px solid transparent;
   border-radius: 5px;
@@ -107,7 +111,6 @@ button:active {
 /* Input styles */
 input:hover {
   cursor: grabbing;
-  background: red;
 }
 
 /* Painting section */
@@ -198,13 +201,16 @@ input:hover {
 @media only screen and (max-width: 500px) {
   body {
     flex-direction: column;
-    margin-bottom: 0;
+    margin: 50px 0 0 0;
+    padding: 0;
   }
   .controls {
-    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem; 
   }
   .controls button {
-    font-size: 0.8rem;
+    width: 30%;
+    font-size: 0.9rem;
   }
   .color-container {
     display: flex;
@@ -230,22 +236,31 @@ input:hover {
 
 @media only screen and (max-width: 50rem) {
   body {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
+
   button {
     min-height: 1rem;
     font-size: 1.1rem;
   }
+
   h1 {
-    margin-left: 5px;
+    margin-left: 0.5rem; /* Changed from hard-coded pixel value to a relative unit */
   }
-  header p {
-    margin-right: 5px;
+
+  h2 {
+    display: none; /* Hiding h2 elements */
   }
-  .controls h2 {
-    display: none;
+
+  .controls {
+    margin-top: 4vh; /* Changed from hard-coded pixel value to a relative unit */
+  }
+
+  .painting {
+  
   }
 }
+
 
 @media only screen and (min-width: 130rem) {
   body {

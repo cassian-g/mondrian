@@ -1,17 +1,18 @@
 let allColors = ["red", "blue", "yellow", "white"];
 
-let totalCells;
-let rowCells;
+let gridCells = 0;
+let rowCells = 0;
 
+// Function to generate the painting grid based on the specified number of rows
 const generatePainting = (row) => {
-  totalCells = row * row;
+  gridCells = row * row;
   rowCells = row;
-  let size;
-  if (row === 4) {
+  let size = '';
+  if (rowCells === 4) {
     size = 'small'
-  } else if (row === 6) {
+  } else if (rowCells === 6) {
     size = 'medium'
-  } else if (row === 8) {
+  } else if (rowCells === 8) {
     size = 'large'
   }
   generateGrid(size);
@@ -20,13 +21,14 @@ const generatePainting = (row) => {
 const painting = document.getElementById("painting");
 const cells = []; 
 
+// Function to generate the painting grid with specified size
 const generateGrid = (size) => {
   painting.innerHTML = '';
   cells.length = 0;
-
   painting.classList.remove('small', 'medium', 'large');
   
-  for (let i = 0; i < totalCells; i++) {
+  // Loop to create cells for the grid
+  for (let i = 0; i < gridCells; i++) {
     const cell = document.createElement("div");
     let filteredColors = allColors;
     if (i === rowCells) {
@@ -36,7 +38,7 @@ const generateGrid = (size) => {
         (col) => col !== cells[i - (rowCells + 1)].color && col !== cells[i - (rowCells - 1)].color
       );
     }
-    color = filteredColors[Math.floor(Math.random() * filteredColors.length)];
+    let color = filteredColors[Math.floor(Math.random() * filteredColors.length)];
     cell.classList.add("cell", color);
     painting.classList.add(size);
     painting.appendChild(cell);
@@ -46,6 +48,7 @@ const generateGrid = (size) => {
   applyBorderClasses();
 }
 
+// Function to apply border classes to cells based on neighboring colors
 const applyBorderClasses = () => {
   cells.forEach((currentCell, index) => {
     const { element, color } = currentCell;
@@ -69,8 +72,10 @@ const applyBorderClasses = () => {
   });
 }
 
+// Generate initial painting grid with 8 rows
 generatePainting(8);
 
+// Function to update color distribution
 const updateColor = (val, col) => {
   allColors = allColors.filter(color => color != col);
   for (let i=0; i<val; i++) {
