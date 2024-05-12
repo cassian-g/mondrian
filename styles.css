@@ -137,7 +137,7 @@ input:hover {
 
 #painting.medium {
   grid-template-columns: repeat(6, calc(60vh / 6));
-  grid-template-rows: repeat(6, calc(50vh / 6));
+  grid-template-rows: repeat(6, calc(60vh / 6));
 }
 
 #painting.small {
