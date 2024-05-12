@@ -115,20 +115,13 @@ input:hover {
 /* Painting section */
 .painting {
   display: grid;
-  padding: 3vh;
-  background: rgb(172, 172, 172);
-  background: linear-gradient(
-    133deg,
-    rgba(172, 172, 172, 1) 0%,
-    rgba(191, 191, 191, 1) 42%
-  );
   border-style: solid;
   border-width: 3vh;
   border-top-color: black;
   border-right-color: rgb(54, 54, 54);
   border-bottom-color: black;
   border-left-color: rgb(54, 54, 54);
-  box-shadow: 1vh 1vh 2vh rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 1vh rgba(0, 0, 0, 1);
   margin: 2vh 0 2vh 0;
 }
 
@@ -138,18 +131,18 @@ input:hover {
 
 /* Grid size variations */
 #painting.large {
-  grid-template-columns: repeat(8, calc(50vh / 8));
-  grid-template-rows: repeat(8, calc(50vh / 8));
+  grid-template-columns: repeat(8, calc(60vh / 8));
+  grid-template-rows: repeat(8, calc(60vh / 8));
 }
 
 #painting.medium {
-  grid-template-columns: repeat(6, calc(50vh / 6));
+  grid-template-columns: repeat(6, calc(60vh / 6));
   grid-template-rows: repeat(6, calc(50vh / 6));
 }
 
 #painting.small {
-  grid-template-columns: repeat(4, calc(50vh / 4));
-  grid-template-rows: repeat(4, calc(50vh / 4));
+  grid-template-columns: repeat(4, calc(60vh / 4));
+  grid-template-rows: repeat(4, calc(60vh / 4));
 }
 
 /* Cell styles */
@@ -244,22 +237,17 @@ input:hover {
   }
 
   h1 {
-    margin-left: 0.5rem; /* Changed from hard-coded pixel value to a relative unit */
+    margin-left: 0.5rem; 
   }
 
   h2 {
-    display: none; /* Hiding h2 elements */
+    display: none; 
   }
 
   .controls {
-    margin-top: 4vh; /* Changed from hard-coded pixel value to a relative unit */
-  }
-
-  .painting {
-  
+    margin-top: 4vh;
   }
 }
-
 
 @media only screen and (min-width: 130rem) {
   body {
